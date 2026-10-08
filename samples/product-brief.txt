@@ -1,0 +1,27 @@
+DocMind Product Brief
+
+DocMind is a document intelligence workspace for students, researchers, and teams.
+The initial release supports text PDFs, plain text, and Markdown documents.
+The upload limit is 15 MB per file and 150 pages per PDF.
+Every account can store up to 100 documents. Each document can contain up to 500 chunks.
+
+Architecture
+The backend uses Java 17 and Spring Boot. The web client is built with React.
+Documents are split into page-aware chunks with 180-character overlap.
+Local mode retrieves matching passages using keyword overlap.
+AI mode creates 1536-dimensional embeddings and uses cosine similarity.
+PostgreSQL deployments use pgvector and an HNSW index.
+Generated answers include numbered citations with source names and page numbers.
+
+Roadmap
+The initial release deadline is November 15. The launch budget is 5000 credits.
+The next milestone is usability testing with 20 students.
+The main risks are inaccurate AI answers, provider costs, and scanned PDFs.
+Mitigations include visible source passages, account request limits, document limits,
+and clear rejection of PDFs without readable text.
+
+Privacy
+Documents can only be retrieved or deleted by their owner.
+Conversation history remains private to the account that created it.
+AI mode sends document chunks to the configured external AI provider.
+Local mode performs all document retrieval within the application.

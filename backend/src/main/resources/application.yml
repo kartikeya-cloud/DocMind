@@ -1,0 +1,25 @@
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: never
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:h2:file:./data/docmind;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  sql:
+    init:
+      mode: always
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 16MB
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+docmind:
+  ai-key: ${OPENAI_API_KEY:}
+  ai-url: ${AI_BASE_URL:https://api.openai.com/v1}
+  chat-model: ${CHAT_MODEL:gpt-4o-mini}
+  embedding-model: ${EMBEDDING_MODEL:text-embedding-3-small}
+  pgvector: ${PGVECTOR_ENABLED:false}

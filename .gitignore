@@ -1,0 +1,12 @@
+node_modules/
+dist/
+target/
+data/
+.env
+*.log
+.idea/
+.vscode/
+.DS_Store
+
+backend/src/main/resources/static/
+runtime/*.jar
